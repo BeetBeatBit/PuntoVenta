@@ -127,12 +127,14 @@ boolean bandera = true;
            NuevaCuenta nuevaCuenta = new NuevaCuenta (tipoUsuario);
            nuevaCuenta.setVisible(true);
            nuevaCuenta.setResizable(false); 
+           nuevaCuenta.setLocationRelativeTo(null);
         }
         if (bandera == false) {
             dispose ();
             NuevaCuenta nuevaCuenta = new NuevaCuenta (tipoUsuario);
             nuevaCuenta.setVisible(true);
             nuevaCuenta.setResizable(false); 
+            nuevaCuenta.setLocationRelativeTo(null);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

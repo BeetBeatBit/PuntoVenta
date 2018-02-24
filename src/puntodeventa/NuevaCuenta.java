@@ -5,6 +5,8 @@
  */
 package puntodeventa;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author crash
@@ -48,6 +50,11 @@ public class NuevaCuenta extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +158,17 @@ public class NuevaCuenta extends javax.swing.JFrame {
         agregarUsuarios.setLocationRelativeTo (null);
         agregarUsuarios.setResizable (false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String password = jPasswordField1.getText();
+        String repeatPassword = jPasswordField2.getText();
+        if (password.equals(repeatPassword)) {
+            System.out.println ("Contraseñas coinciden");
+        } else {
+            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
