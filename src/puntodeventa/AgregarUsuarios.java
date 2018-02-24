@@ -29,8 +29,8 @@ boolean bandera = true;
 
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Continuar = new javax.swing.JButton();
+        Cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,17 +44,17 @@ boolean bandera = true;
             }
         });
 
-        jButton1.setText("Continuar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Continuar.setText("Continuar");
+        Continuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ContinuarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Cancelar.setText("Cancelar");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                CancelarActionPerformed(evt);
             }
         });
 
@@ -70,9 +70,9 @@ boolean bandera = true;
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(Cancelar)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1))
+                                .addComponent(Continuar))
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -85,8 +85,8 @@ boolean bandera = true;
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(Cancelar)
+                    .addComponent(Continuar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -108,7 +108,7 @@ boolean bandera = true;
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
         // TODO add your handling code here:
         dispose ();
         Sistema sistema = new Sistema ();
@@ -116,28 +116,28 @@ boolean bandera = true;
         sistema.setResizable(false);
         sistema.setLocationRelativeTo (null);
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_CancelarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinuarActionPerformed
         // TODO add your handling code here:
         String tipoUsuario = (String) jComboBox1.getSelectedItem();
         System.out.println ("Tipo usuario: " + tipoUsuario);
         if (bandera == true) {
            dispose ();
-           NuevaCuenta nuevaCuenta = new NuevaCuenta (tipoUsuario);
+           NuevaCuenta nuevaCuenta = new NuevaCuenta (tipoUsuario, bandera);
            nuevaCuenta.setVisible(true);
            nuevaCuenta.setResizable(false); 
            nuevaCuenta.setLocationRelativeTo(null);
         }
         if (bandera == false) {
             dispose ();
-            NuevaCuenta nuevaCuenta = new NuevaCuenta (tipoUsuario);
+            NuevaCuenta nuevaCuenta = new NuevaCuenta (tipoUsuario, bandera);
             nuevaCuenta.setVisible(true);
             nuevaCuenta.setResizable(false); 
             nuevaCuenta.setLocationRelativeTo(null);
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ContinuarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,8 +175,8 @@ boolean bandera = true;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton Cancelar;
+    private javax.swing.JButton Continuar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

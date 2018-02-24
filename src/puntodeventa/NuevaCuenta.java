@@ -6,6 +6,7 @@
 package puntodeventa;
 
 import javax.swing.JOptionPane;
+import java.awt.*;
 
 /**
  *
@@ -16,10 +17,12 @@ public class NuevaCuenta extends javax.swing.JFrame {
     /**
      * Creates new form NuevaCuenta
      * @param tipoUsuario
+     * @param bandera
      */
-    public NuevaCuenta(String tipoUsuario) {
+    public NuevaCuenta(String tipoUsuario, boolean bandera) {
         initComponents();
-        jLabel2.setText(tipoUsuario);
+        jLabel2.setText (tipoUsuario);
+        boolean typeUser = bandera;
     }
 
     /**
@@ -116,9 +119,9 @@ public class NuevaCuenta extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -161,12 +164,42 @@ public class NuevaCuenta extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        Metodos ft=new Metodos();
+        String usuario = jTextField1.getText();
         String password = jPasswordField1.getText();
         String repeatPassword = jPasswordField2.getText();
-        if (password.equals(repeatPassword)) {
-            System.out.println ("Contraseñas coinciden");
-        } else {
-            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
+        String typeUser = jLabel2.getText();
+        
+        
+        
+        if (typeUser.equals("Administrador")) {
+            if (password.equals (repeatPassword)) {
+                int control;
+                control=ft.inserDatosAdmin(usuario, password);
+                dispose ();
+                Sistema sistema = new Sistema ();
+                sistema.setVisible(true);
+                sistema.setResizable(false);
+                sistema.setLocationRelativeTo(null);
+            } else {
+                Toolkit.getDefaultToolkit().beep();
+                JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "Advertencia", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        
+        if (typeUser.equals("Usuario")) {
+            if (password.equals(repeatPassword)) {
+                int control;
+                control = ft.inserDatos(usuario, password);
+                dispose ();
+                Sistema sistema = new Sistema ();
+                sistema.setVisible(true);
+                sistema.setResizable(false);
+                sistema.setLocationRelativeTo(null);
+            } else {
+                Toolkit.getDefaultToolkit().beep();
+                JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "Advertencia", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

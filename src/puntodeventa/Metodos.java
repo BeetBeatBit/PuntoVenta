@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 public class Metodos {
     private final String SQL_INSERT="INSERT INTO registro(usuario, contraseña)values(?, ?)";
+    private final String SQL_INSERT_ADMIN = "INSERT INTO registrousers (usuario, contraseña) values (?, ?)";
     private final String SQL_SELECT="SELECT contraseña FROM registro WHERE usuario= ?";
     private final String SQL_SELECT_ADMIN = "SELECT contraseña FROM registrousers WHERE usuario=?";
     private final String SQL_UPDATE="UPDATE registro SET usuario= ?, contraseña= ?";
@@ -24,6 +25,26 @@ public class Metodos {
     public int inserDatos(String usuario, String contraseña){
         try{
             PS=CONEC.getConnection().prepareStatement(SQL_INSERT);
+            PS.setString(1, usuario);
+            PS.setString(2, contraseña);
+            
+            int res=PS.executeUpdate();
+            if(res>0){
+                JOptionPane.showMessageDialog(null,"Registro Exitoso","Exito",JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+        }
+        finally{
+            PS=null;
+        }
+        return 0;
+    }
+    
+        public int inserDatosAdmin (String usuario, String contraseña){
+        try{
+            PS=CONEC.getConnection().prepareStatement(SQL_INSERT_ADMIN);
             PS.setString(1, usuario);
             PS.setString(2, contraseña);
             
