@@ -10,7 +10,7 @@ package puntodeventa;
  * @author crash
  */
 public class AgregarUsuarios extends javax.swing.JFrame {
-
+boolean bandera = true;
     /**
      * Creates new form AgregarUsuarios
      */
@@ -97,10 +97,14 @@ public class AgregarUsuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         String itemSeleccionado = (String) jComboBox1.getSelectedItem();
         if ("Administrador".equals(itemSeleccionado)) {
-        
+        System.out.println ("Agregar cuenta como administrador");
+        bandera = true;
+        System.out.println (bandera);
         }
         if ("Usuario".equals(itemSeleccionado)) {
-            
+            System.out.println ("Agregar cuenta como usuario");
+            bandera = false;
+            System.out.println (bandera);
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -116,10 +120,21 @@ public class AgregarUsuarios extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        dispose ();
-        NuevaCuenta nuevaCuenta = new NuevaCuenta ();
-        nuevaCuenta.setVisible(true);
-        nuevaCuenta.setResizable(false);
+        String tipoUsuario = (String) jComboBox1.getSelectedItem();
+        System.out.println ("Tipo usuario: " + tipoUsuario);
+        if (bandera == true) {
+           dispose ();
+           NuevaCuenta nuevaCuenta = new NuevaCuenta (tipoUsuario);
+           nuevaCuenta.setVisible(true);
+           nuevaCuenta.setResizable(false); 
+        }
+        if (bandera == false) {
+            dispose ();
+            NuevaCuenta nuevaCuenta = new NuevaCuenta (tipoUsuario);
+            nuevaCuenta.setVisible(true);
+            nuevaCuenta.setResizable(false); 
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
