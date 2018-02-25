@@ -10,7 +10,7 @@ package puntodeventa;
  * @author crash
  */
 public class AgregarUsuarios extends javax.swing.JFrame {
-boolean bandera = true;
+    boolean bandera = true;
     /**
      * Creates new form AgregarUsuarios
      */
@@ -167,10 +167,8 @@ boolean bandera = true;
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AgregarUsuarios().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new AgregarUsuarios().setVisible(true);
         });
     }
 

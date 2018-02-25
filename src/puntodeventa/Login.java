@@ -5,7 +5,6 @@
  */
 package puntodeventa;
 
-import clases.conectar;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -17,7 +16,6 @@ import javax.swing.*;
  * @author neftali
  */
 public class Login extends javax.swing.JFrame {
-    private JComboBox combo1;
     boolean bandera = true;
     /**
      * Creates new form Login
@@ -117,8 +115,8 @@ public class Login extends javax.swing.JFrame {
             if(control==1){
                 dispose();
                 JOptionPane.showMessageDialog(null, "Bienvenido\nHas ingresado"+" satisfactoriamente al sistema", "Mensaje de Bienvenida", JOptionPane.INFORMATION_MESSAGE);
-                Sistema sistema=new Sistema();
-                sistema.setVisible(true);
+                Sistema sistema = new Sistema();
+                sistema.setVisible (true);
                 sistema.setLocationRelativeTo (null);
             }
             else{
@@ -134,7 +132,7 @@ public class Login extends javax.swing.JFrame {
             if(control==1){
                 dispose();
                 JOptionPane.showMessageDialog(null, "Bienvenido\nHas ingresado"+" satisfactoriamente al sistema", "Mensaje de Bienvenida", JOptionPane.INFORMATION_MESSAGE);
-                Sistema sistema=new Sistema();
+                SistemaUser sistema = new SistemaUser ();
                 sistema.setLocationRelativeTo (null);
                 sistema.setVisible(true);
             }
@@ -156,7 +154,9 @@ public class Login extends javax.swing.JFrame {
             System.out.println ("Administrador");
             bandera = true;
             System.out.println (bandera);
+            
         }
+        
         if ("Usuario".equals(itemSeleccionado)) {
             System.out.println ("Usuario");
             bandera = false;
@@ -192,10 +192,8 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Login().setVisible(true);
         });
     }
 

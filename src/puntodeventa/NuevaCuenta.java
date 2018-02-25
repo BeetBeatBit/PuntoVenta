@@ -13,7 +13,6 @@ import java.awt.*;
  * @author crash
  */
 public class NuevaCuenta extends javax.swing.JFrame {
-
     /**
      * Creates new form NuevaCuenta
      * @param tipoUsuario
@@ -23,6 +22,7 @@ public class NuevaCuenta extends javax.swing.JFrame {
         initComponents();
         jLabel2.setText (tipoUsuario);
         boolean typeUser = bandera;
+        
     }
 
     /**
