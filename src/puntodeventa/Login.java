@@ -16,7 +16,7 @@ import javax.swing.*;
  * @author neftali
  */
 public class Login extends javax.swing.JFrame {
-    boolean bandera = true;
+    static boolean bandera = true;
     /**
      * Creates new form Login
      */
