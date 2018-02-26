@@ -54,6 +54,7 @@ public class Login extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -79,7 +80,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(100, 310, 120, 23);
+        jButton1.setBounds(160, 310, 120, 23);
         getContentPane().add(jPasswordField1);
         jPasswordField1.setBounds(140, 170, 150, 20);
 
@@ -92,7 +93,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jComboBox1);
         jComboBox1.setBounds(160, 230, 130, 20);
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 330, 50);
+        jLabel1.setBounds(-10, 0, 330, 50);
 
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -100,7 +101,16 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 330, 390);
+        jLabel5.setBounds(0, -20, 310, 390);
+
+        jButton2.setText("Salir");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(30, 310, 80, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -164,6 +174,11 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        System.exit (0);
+    }//GEN-LAST:event_jButton2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -199,6 +214,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

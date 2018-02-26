@@ -80,6 +80,11 @@ public class Sistema extends javax.swing.JFrame {
         });
 
         jButton6.setText("Buscar producto");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Modificar Productos");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -205,6 +210,16 @@ public class Sistema extends javax.swing.JFrame {
         inventario.setLocationRelativeTo (null);
         inventario.setResizable (false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        boolean bandera = true;
+        dispose ();
+        BuscarProducto buscarProducto = new BuscarProducto (bandera);
+        buscarProducto.setVisible (true);
+        buscarProducto.setResizable (false);
+        buscarProducto.setLocationRelativeTo (null);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
