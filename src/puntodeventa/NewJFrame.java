@@ -33,7 +33,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }
     
     private String[] getColumnas(){
-        String columna[] = new String[]{"id_producto", "nombre", "costo", "cantidad"};
+        String columna[] = new String[]{"id_producto", "nombre", "costo", "cantidad", "descripcion"};
         return columna;   
            
     }
@@ -41,13 +41,13 @@ public class NewJFrame extends javax.swing.JFrame {
     private void setFilas() throws SQLException{
         try {
             String sql = "SELECT id_produ"
-                    + "cto, nombre, costo, cantidad FROM productos";
+                    + "cto, nombre, costo, cantidad, descripcion FROM productos";
             PreparedStatement us = con.getConnection().prepareStatement(sql);
             
             ResultSet res = us.executeQuery();
-            Object datos[] = new Object[4];
+            Object datos[] = new Object[5];
         while(res.next()){
-            for (int i = 0; i<4; i++ ){
+            for (int i = 0; i<5; i++ ){
                 datos[i] = res.getObject(i+1);    
             }
             modeloTabla.addRow(datos);
