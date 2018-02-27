@@ -15,7 +15,7 @@ public class Metodos {
     private final String SQL_INSERT_PRODUCTOS = "INSERT INTO productos (nombre, costo, cantidad, descripcion, codigo_producto) values (?, ?, ?, ?, ?)";
     private final String SQL_SELECT="SELECT contraseña FROM registro WHERE usuario= ?";
     private final String SQL_SELECT_ADMIN = "SELECT contraseña FROM registrousers WHERE usuario=?";
-    private final String SQL_SELECT_PRODUCTOS = "SELECT id_producto FROM prodcutos";
+    private final String SQL_SELECT_PRODUCTOS = "SELECT id_producto FROM productos";
     private final String SQL_UPDATE = "UPDATE registro SET usuario= ?, contraseña= ?";
     private final String SQL_UPDATE_PASS = "UPDATE registrousers SET contraseña = ?";
     private final String SQL_UPDATE_PRODUCTS = "UPDATE productos SET nombre = ?, costo = ?, cantidad = ?, descripcion = ?, codigo_producto = ?";
@@ -170,12 +170,12 @@ public class Metodos {
         }
     }
     
-     public int SelectProductosID (String id_producto){
+     public int SelectProductosID (Integer id_producto){
         String Con = "";
         int control = 0;
         try{
             PS = CONEC.getConnection().prepareStatement(SQL_SELECT_PRODUCTOS);
-            PS.setString(1, id_producto);
+            PS.setInt(1, id_producto);
             RS = PS.executeQuery();
             if(RS.next()){
                Con = RS.getString(1);

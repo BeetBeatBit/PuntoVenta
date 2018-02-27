@@ -76,6 +76,13 @@ public class Sistema extends javax.swing.JFrame {
                 jTextField1MouseClicked(evt);
             }
         });
+        jTextField1.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                jTextField1InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
 
         salir.setText("Salir");
         salir.addActionListener(new java.awt.event.ActionListener() {
@@ -180,7 +187,7 @@ public class Sistema extends javax.swing.JFrame {
 
     private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
         // TODO add your handling code here:
-        jTextField1.setEditable(false);
+        jTextField1.setEditable(true);
     }//GEN-LAST:event_jTextField1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -257,6 +264,11 @@ public class Sistema extends javax.swing.JFrame {
         changePass.setResizable (false);
         changePass.setLocationRelativeTo (null);
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jTextField1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jTextField1InputMethodTextChanged
+        // TODO add your handling code here:
+        System.out.println ("Hello world");
+    }//GEN-LAST:event_jTextField1InputMethodTextChanged
 
     /**
      * @param args the command line arguments

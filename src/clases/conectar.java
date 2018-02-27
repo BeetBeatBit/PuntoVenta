@@ -8,9 +8,9 @@ import javax.swing.*;
 public class conectar {
     private static Connection CN;
     private static final String DRIVER= "com.mysql.jdbc.Driver";
-    private static final String USER= "root";
-    private static final String PASSWORD= "";
-    private static final String URL= "jdbc:mysql://localhost:3306/puntoventa";
+    private static final String USER= "Externo";
+    private static final String PASSWORD= "pepito";
+    private static final String URL= "jdbc:mysql://169.254.19.187:3306/puntoventa";
     
     //Aqui se configura la conexion a otras PC´s.
     

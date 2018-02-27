@@ -107,10 +107,10 @@ public class ModificarProductos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String id = scID.getText();
-        
+        int ID = Integer.parseInt(id);
         Metodos ft = new Metodos();
         int control;
-        control = ft.SelectProductosID (id);
+        control = ft.SelectProductosID (ID);
         
         if (control == 1) {
             UpdateProducts updateProducts = new UpdateProducts ();

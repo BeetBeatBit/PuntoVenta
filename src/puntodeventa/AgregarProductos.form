@@ -53,10 +53,8 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="nombreProducto" pref="187" max="32767" attributes="0"/>
                           <Component id="codigoProducto" alignment="0" max="32767" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="cantidadProducto" alignment="0" pref="60" max="32767" attributes="0"/>
-                              <Component id="precioProducto" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="cantidadProducto" alignment="0" pref="187" max="32767" attributes="0"/>
+                          <Component id="precioProducto" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
