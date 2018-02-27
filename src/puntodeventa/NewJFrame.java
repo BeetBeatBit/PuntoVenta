@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Daniel Martínez
+ * @author Alberto Vázquez
  */
 public class NewJFrame extends javax.swing.JFrame {
     DefaultTableModel modeloTabla;
@@ -157,12 +157,12 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.jButton1.setEnabled (false);
-        /*dispose ();.
+        //this.jButton1.setEnabled (false);
+        dispose ();
         ModificarProductos modificarProductos = new ModificarProductos ();
         modificarProductos.setVisible (true);
         modificarProductos.setResizable (false);
-        modificarProductos.setLocationRelativeTo (null);*/
+        modificarProductos.setLocationRelativeTo (null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

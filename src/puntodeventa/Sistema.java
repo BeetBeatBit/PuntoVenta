@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author neftali
+ * @author Alberto 
  */
 public class Sistema extends javax.swing.JFrame {
     /**
