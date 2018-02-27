@@ -17,6 +17,7 @@ public class Metodos {
     private final String SQL_SELECT_ADMIN = "SELECT contraseña FROM registrousers WHERE usuario=?";
     private final String SQL_SELECT_PRODUCTOS = "SELECT id_producto FROM prodcutos";
     private final String SQL_UPDATE = "UPDATE registro SET usuario= ?, contraseña= ?";
+    private final String SQL_UPDATE_PASS = "UPDATE registrousers SET contraseña = ?";
     private final String SQL_UPDATE_PRODUCTS = "UPDATE productos SET nombre = ?, costo = ?, cantidad = ?, descripcion = ?, codigo_producto = ?";
     private ResultSet RS;
     private PreparedStatement PS;
@@ -100,6 +101,22 @@ public class Metodos {
            int res=PS.executeUpdate();
            if(res>0){
                JOptionPane.showMessageDialog(null, "Modificacion Cargada Con Exito", "Exito", JOptionPane.INFORMATION_MESSAGE);
+           }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return 0;
+    }
+    
+    public int upDatosPass (String password){
+        try{
+           PS=CONEC.getConnection().prepareStatement(SQL_UPDATE_PASS);
+           PS.setString(1, password);
+           
+           int res=PS.executeUpdate();
+           if(res>0){
+               JOptionPane.showMessageDialog(null, "Contraseña cambiada con éxito", "Exito", JOptionPane.INFORMATION_MESSAGE);
            }
         }
         catch(Exception e){

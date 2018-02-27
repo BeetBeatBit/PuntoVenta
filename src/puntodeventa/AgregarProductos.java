@@ -84,14 +84,41 @@ public class AgregarProductos extends javax.swing.JFrame {
                 precioProductoMouseClicked(evt);
             }
         });
+        precioProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                precioProductoActionPerformed(evt);
+            }
+        });
+        precioProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                precioProductoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                precioProductoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                precioProductoKeyTyped(evt);
+            }
+        });
 
         cantidadProducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cantidadProductoMouseClicked(evt);
             }
         });
+        cantidadProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cantidadProductoKeyTyped(evt);
+            }
+        });
 
         jLabel5.setText("Código de barras:");
+
+        codigoProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                codigoProductoKeyTyped(evt);
+            }
+        });
 
         jLabel6.setText("Descripción del producto:");
 
@@ -107,30 +134,27 @@ public class AgregarProductos extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(descripcionProducto))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(cancelar)
+                        .addGap(47, 47, 47)
+                        .addComponent(aceptar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addComponent(cancelar)
-                                .addGap(47, 47, 47)
-                                .addComponent(aceptar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nombreProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(precioProducto)
-                                        .addComponent(cantidadProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))
-                                    .addComponent(codigoProducto))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nombreProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                            .addComponent(codigoProducto)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(cantidadProducto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                                .addComponent(precioProducto, javax.swing.GroupLayout.Alignment.LEADING)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -220,6 +244,52 @@ public class AgregarProductos extends javax.swing.JFrame {
     private void nombreProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreProductoActionPerformed
+
+    private void precioProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioProductoActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_precioProductoActionPerformed
+
+    private void precioProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioProductoKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_precioProductoKeyPressed
+
+    private void precioProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioProductoKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_precioProductoKeyReleased
+
+    private void precioProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioProductoKeyTyped
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+
+        // Verificar si la tecla pulsada no es un digito
+        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b' /*corresponde a BACK_SPACE*/)) {
+           evt.consume();  // ignorar el evento de teclado
+        }
+    }//GEN-LAST:event_precioProductoKeyTyped
+
+    private void cantidadProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadProductoKeyTyped
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+
+        // Verificar si la tecla pulsada no es un digito
+        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b' /*corresponde a BACK_SPACE*/)) {
+           evt.consume();  // ignorar el evento de teclado
+        }
+    }//GEN-LAST:event_cantidadProductoKeyTyped
+
+    private void codigoProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoProductoKeyTyped
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+
+        // Verificar si la tecla pulsada no es un digito
+        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b' /*corresponde a BACK_SPACE*/)) {
+           evt.consume();  // ignorar el evento de teclado
+        }
+    }//GEN-LAST:event_codigoProductoKeyTyped
 
     /**
      * @param args the command line arguments

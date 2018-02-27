@@ -153,12 +153,21 @@
     <Component class="javax.swing.JTextField" name="nombreProducto">
     </Component>
     <Component class="javax.swing.JTextField" name="costoProducto">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="costoProductoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cantidadProducto">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cantidadProductoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="descripcionProducto">
     </Component>
     <Component class="javax.swing.JTextField" name="codigoProducto">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="codigoProductoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cancelar">
       <Properties>

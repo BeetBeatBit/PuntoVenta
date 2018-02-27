@@ -56,6 +56,24 @@ public class UpdateProducts extends javax.swing.JFrame {
 
         jLabel6.setText("Código de barras:");
 
+        costoProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                costoProductoKeyTyped(evt);
+            }
+        });
+
+        cantidadProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cantidadProductoKeyTyped(evt);
+            }
+        });
+
+        codigoProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                codigoProductoKeyTyped(evt);
+            }
+        });
+
         cancelar.setText("Cancelar");
         cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,6 +191,38 @@ public class UpdateProducts extends javax.swing.JFrame {
         sistema.setResizable (false);
         sistema.setLocationRelativeTo (null);
     }//GEN-LAST:event_cancelarActionPerformed
+
+    private void costoProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_costoProductoKeyTyped
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+
+        // Verificar si la tecla pulsada no es un digito
+        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b' /*corresponde a BACK_SPACE*/)) {
+           evt.consume();  // ignorar el evento de teclado
+        }
+    }//GEN-LAST:event_costoProductoKeyTyped
+
+    private void cantidadProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadProductoKeyTyped
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+
+        // Verificar si la tecla pulsada no es un digito
+        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b' /*corresponde a BACK_SPACE*/)) {
+           evt.consume();  // ignorar el evento de teclado
+        }
+    }//GEN-LAST:event_cantidadProductoKeyTyped
+
+    private void codigoProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoProductoKeyTyped
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+
+        // Verificar si la tecla pulsada no es un digito
+        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b' /*corresponde a BACK_SPACE*/)) {
+           evt.consume();  // ignorar el evento de teclado
+        }
+    }//GEN-LAST:event_codigoProductoKeyTyped
 
     /**
      * @param args the command line arguments
