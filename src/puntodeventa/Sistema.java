@@ -194,7 +194,8 @@ public class Sistema extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        jButton3.setVisible (true);
+        this.jButton3.setEnabled(false);
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -215,11 +216,10 @@ public class Sistema extends javax.swing.JFrame {
             NewJFrame inventario;
             inventario = new NewJFrame(bandera);
             inventario.setLocationRelativeTo(null);
-            inventario.setSize(690,450);
-            
+            inventario.setSize(690,360);
+            inventario.setResizable (false);
             inventario.setVisible (true);
-            
-            
+         
         } catch (SQLException ex) {
             Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
         }

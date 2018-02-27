@@ -5,11 +5,8 @@
  */
 package puntodeventa;
 import clases.conectar;
-import java.awt.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Locale.Category;
 import javax.swing.JOptionPane;
 
 public class Metodos {
@@ -18,11 +15,13 @@ public class Metodos {
     private final String SQL_INSERT_PRODUCTOS = "INSERT INTO productos (nombre, costo, cantidad, descripcion, codigo_producto) values (?, ?, ?, ?, ?)";
     private final String SQL_SELECT="SELECT contraseña FROM registro WHERE usuario= ?";
     private final String SQL_SELECT_ADMIN = "SELECT contraseña FROM registrousers WHERE usuario=?";
-    private final String SQL_SELECT_PRODUCTOS = "SELECT *FROM productos";
-    private final String SQL_UPDATE="UPDATE registro SET usuario= ?, contraseña= ?";
+    private final String SQL_SELECT_PRODUCTOS = "SELECT id_producto FROM prodcutos";
+    private final String SQL_UPDATE = "UPDATE registro SET usuario= ?, contraseña= ?";
+    private final String SQL_UPDATE_PRODUCTS = "UPDATE productos SET nombre = ?, costo = ?, cantidad = ?, descripcion = ?, codigo_producto = ?";
     private ResultSet RS;
     private PreparedStatement PS;
     private final conectar CONEC;
+    
     public Metodos(){
         PS=null;
         CONEC=new conectar();
@@ -108,6 +107,27 @@ public class Metodos {
         }
         return 0;
     }
+    
+     public int updateProductos (String nombre, String costo, String cantidad, String descripcion, String codigo_producto){
+        try{
+           PS=CONEC.getConnection().prepareStatement(SQL_UPDATE_PRODUCTS);
+           PS.setString(1, nombre);
+           PS.setString(2, costo);
+           PS.setString(3, cantidad);
+           PS.setString(4, descripcion);
+           PS.setString(5, codigo_producto);
+           
+           int res=PS.executeUpdate();
+           if(res>0){
+               JOptionPane.showMessageDialog(null, "Modificacion Cargada Con Exito", "Exito", JOptionPane.INFORMATION_MESSAGE);
+           }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return 0;
+    }
+    
     public int SelectDatos(String usuario,String contra){
         String Con = "";
         int control = 0;
@@ -133,30 +153,29 @@ public class Metodos {
         }
     }
     
-     public int SelectProductos(String nombre, String costo, String cantidad){
-        //List<Category> categories = new ArrayList<>();
+     public int SelectProductosID (String id_producto){
         String Con = "";
         int control = 0;
         try{
             PS = CONEC.getConnection().prepareStatement(SQL_SELECT_PRODUCTOS);
-            PS.setString(1, nombre);
+            PS.setString(1, id_producto);
             RS = PS.executeQuery();
             if(RS.next()){
                Con = RS.getString(1);
             }
             
-            while(RS.next()) {
-                /*Category category = new Category();
-                category.setId(rs.getInt("id"));
-                category.setName(rs.getString("name");
-                categories.add(category);*/
+            if(Con.equals(id_producto)){
+                JOptionPane.showMessageDialog(null, "Excelente","Exito", JOptionPane.INFORMATION_MESSAGE);
+               control = 1; 
             }
+           
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Producto no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        
         if(control ==1){
             return 1;
-        }else{
+        } else{
            return 0;
         }
     }
