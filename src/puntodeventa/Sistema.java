@@ -214,7 +214,7 @@ public class Sistema extends javax.swing.JFrame {
             NewJFrame inventario;
             inventario = new NewJFrame();
             inventario.setLocationRelativeTo(null);
-            inventario.setSize(410,400);
+            inventario.setSize(690,450);
             
             inventario.setVisible (true);
             

@@ -148,7 +148,7 @@ public class SistemaUser extends javax.swing.JFrame {
             dispose();
             NewJFrame inventario;
             inventario = new NewJFrame();
-            inventario.setSize(410,400);
+            inventario.setSize(690,450);
             inventario.setLocationRelativeTo(null);
             
             inventario.setVisible (true);
