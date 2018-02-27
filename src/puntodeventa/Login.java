@@ -101,7 +101,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, -20, 310, 390);
+        jLabel5.setBounds(0, -20, 310, 320);
 
         jButton2.setText("Salir");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
