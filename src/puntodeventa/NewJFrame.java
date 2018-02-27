@@ -19,14 +19,16 @@ import javax.swing.table.DefaultTableModel;
  */
 public class NewJFrame extends javax.swing.JFrame {
     DefaultTableModel modeloTabla;
+    boolean typeUser;
    
     conectar con = new conectar();
 
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() throws SQLException {
+    public NewJFrame(boolean bandera) throws SQLException {
         modeloTabla = new DefaultTableModel(null, getColumnas());
+        this.typeUser = bandera;
         setFilas();
         initComponents();
         initComponents();
@@ -70,19 +72,32 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        regresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTable1.setModel(modeloTabla);
         jScrollPane1.setViewportView(jTable1);
 
+        regresar.setText("Regresar");
+        regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(272, 272, 272)
+                        .addComponent(regresar)))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -90,11 +105,32 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(regresar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
+        // TODO add your handling code here:
+        if (typeUser == true) {
+            dispose ();
+            Sistema sistema = new Sistema ();
+            sistema.setVisible (typeUser);
+            sistema.setResizable (false);
+            sistema.setLocationRelativeTo (null); 
+        }
+        
+        if (typeUser == false) {
+            dispose ();
+            SistemaUser sistemaUser = new SistemaUser ();
+            sistemaUser.setVisible (true);
+            sistemaUser.setLocationRelativeTo (null);
+            sistemaUser.setResizable (false);
+        }
+    }//GEN-LAST:event_regresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,19 +160,14 @@ public class NewJFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new NewJFrame().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+          //  new NewJFrame().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton regresar;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class Metodos {
     private final String SQL_INSERT="INSERT INTO registro(usuario, contraseña)values(?, ?)";
     private final String SQL_INSERT_ADMIN = "INSERT INTO registrousers (usuario, contraseña) values (?, ?)";
-    private final String SQL_INSERT_PRODUCTOS = "INSERT INTO productos (nombre, costo, cantidad) values (?, ?, ?)";
+    private final String SQL_INSERT_PRODUCTOS = "INSERT INTO productos (nombre, costo, cantidad, descripcion, codigo_producto) values (?, ?, ?, ?, ?)";
     private final String SQL_SELECT="SELECT contraseña FROM registro WHERE usuario= ?";
     private final String SQL_SELECT_ADMIN = "SELECT contraseña FROM registrousers WHERE usuario=?";
     private final String SQL_SELECT_PRODUCTOS = "SELECT *FROM productos";
@@ -28,12 +28,14 @@ public class Metodos {
         CONEC=new conectar();
     }
     
-    public int insertProductos(String nombre, String costo, String cantidad){
+    public int insertProductos(String nombre, String costo, String cantidad, String descripcion, String codigo_producto){
         try{
             PS=CONEC.getConnection().prepareStatement(SQL_INSERT_PRODUCTOS);
             PS.setString(1, nombre);
             PS.setString(2, costo);
             PS.setString(3, cantidad);
+            PS.setString(4, descripcion);
+            PS.setString(5, codigo_producto);
             
             int res=PS.executeUpdate();
             if(res>0){

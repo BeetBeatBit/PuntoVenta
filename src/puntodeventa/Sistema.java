@@ -208,11 +208,12 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+       boolean bandera = true;
+        
         try {
             dispose();
             NewJFrame inventario;
-            inventario = new NewJFrame();
+            inventario = new NewJFrame(bandera);
             inventario.setLocationRelativeTo(null);
             inventario.setSize(690,450);
             
