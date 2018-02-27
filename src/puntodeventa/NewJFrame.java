@@ -158,7 +158,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.jButton1.setEnabled (false);
-        /*dispose ();
+        /*dispose ();.
         ModificarProductos modificarProductos = new ModificarProductos ();
         modificarProductos.setVisible (true);
         modificarProductos.setResizable (false);
