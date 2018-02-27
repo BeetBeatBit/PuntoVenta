@@ -1,8 +1,5 @@
-
-//Hola esto es una prueba
-
-
 package clases;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.DriverManager;
@@ -14,6 +11,8 @@ public class conectar {
     private static final String USER= "root";
     private static final String PASSWORD= "";
     private static final String URL= "jdbc:mysql://localhost:3306/puntoventa";
+    
+    //Aqui se configura la conexion a otras PC´s.
     
 public conectar(){
     CN=null;
