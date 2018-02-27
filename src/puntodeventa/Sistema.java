@@ -5,6 +5,11 @@
  */
 package puntodeventa;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.swing.JPanel;
 /**
  *
  * @author neftali
@@ -203,12 +208,23 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        dispose ();
-        Inventario inventario = new Inventario ();
-        inventario.setVisible (true);
-        inventario.setLocationRelativeTo (null);
-        inventario.setResizable (false);
+       
+        try {
+            dispose();
+            NewJFrame inventario;
+            inventario = new NewJFrame();
+            inventario.setLocationRelativeTo(null);
+            inventario.setSize(410,400);
+            
+            inventario.setVisible (true);
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+            
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

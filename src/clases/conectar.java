@@ -6,6 +6,7 @@ package clases;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.swing.*;
 public class conectar {
     private static Connection CN;
@@ -35,4 +36,8 @@ public void close(){
         JOptionPane.showMessageDialog(null, e.getMessage(), "Conexion Interrumpida", JOptionPane.ERROR_MESSAGE);
     }
 }
+
+    public PreparedStatement prepareStatement(String sql) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -5,6 +5,10 @@
  */
 package puntodeventa;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author crash
@@ -139,11 +143,24 @@ public class SistemaUser extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dispose ();
-        Inventario inventario = new Inventario ();
-        inventario.setVisible (true);
-        inventario.setLocationRelativeTo (null);
-        inventario.setResizable (false);
+     
+        try {
+            dispose();
+            NewJFrame inventario;
+            inventario = new NewJFrame();
+            inventario.setSize(410,400);
+            inventario.setLocationRelativeTo(null);
+            
+            inventario.setVisible (true);
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        
+       
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
